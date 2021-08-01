@@ -14,15 +14,14 @@ class Player
 end
 
 class Board
-  attr_reader :board_arr
+  attr_reader :arr
   def initialize()
-    @board_arr = Array.new(3,Array.new(3,nil))
+    #@arr = Array.new(3,Array.new(3,nil))
+    @arr = Array.new(3) {Array.new(3,nil)}
   end
 end
 
 binding.pry
 board = Board.new
-p board
 p1 = Player.new
 p2 = Player.new
-p board
