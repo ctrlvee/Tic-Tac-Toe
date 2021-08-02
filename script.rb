@@ -1,8 +1,11 @@
 require 'pry-byebug'
 
+$arr = Array.new(3) { Array.new(3,nil) }
+
 class Player
   attr_reader :player_marker
-  @@markers = ["X","O"].shuffle
+
+  @@markers = ["X", "O"].shuffle
   @@player_count = 1
 
   def initialize
@@ -11,17 +14,13 @@ class Player
     @@player_count += 1
   end
   
-end
-
-class Board
-  attr_reader :arr
-  def initialize()
-    #@arr = Array.new(3,Array.new(3,nil))
-    @arr = Array.new(3) {Array.new(3,nil)}
+  def make_move(row, col)
+    $arr[row][col] = player_marker
   end
 end
 
 binding.pry
-board = Board.new
 p1 = Player.new
 p2 = Player.new
+
+p1.make_move(1, 1)
