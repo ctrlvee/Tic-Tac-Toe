@@ -1,6 +1,6 @@
 require 'pry-byebug'
 
-$arr = Array.new(3) { Array.new(3,nil) }
+
 
 class Player
   attr_reader :player_marker
@@ -19,7 +19,15 @@ class Player
   end
 end
 
+class Board
+  
+  def initialize()
+    $arr = Array.new(3) { Array.new(3,nil) }
+  end
+end
+
 binding.pry
+Board.new
 p1 = Player.new
 p2 = Player.new
 
