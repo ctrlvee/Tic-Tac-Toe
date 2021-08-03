@@ -3,7 +3,7 @@ require 'pry-byebug'
 class Player
   attr_reader :player_marker
 
-  @@markers = ["X", "O"].shuffle
+  @@markers = %W[X O].shuffle
   @@player_count = 1
 
   def initialize
@@ -24,25 +24,28 @@ class Player
   def check_if_marker_exists(row, col)
 
     if $arr[row][col] != nil
-      puts "Invalid. The other player has used that square"
-      return true
+      puts 'Invalid. The other player has used that square'
+      true
     end
 
   end
 end
 
 class Board
-  def initialize()
-    $arr = Array.new(3) { Array.new(3,nil) }
+  def initialize
+    $arr = Array.new(3) { Array.new(3, nil) }
   end
 end
 
 class Game
-
+  
+  def initialize
+    Board.new
+  end
 end
 
 binding.pry
-Board.new
+
 p1 = Player.new
 p2 = Player.new
 
