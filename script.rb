@@ -42,18 +42,18 @@ end
 def check_vertical
   p1_count = 0
   p2_count = 0
+ 
   3.times do |col|
-    puts col
     3.times do |row|
-      puts row
       case $arr[row][col]
-      when @p2.player_marker
-        p2_count += 1
       when @p1.player_marker
         p1_count += 1
+      when @p2.player_marker
+        p2_count += 1
       end
     end
   end
+  p1_count
 end
 
 
