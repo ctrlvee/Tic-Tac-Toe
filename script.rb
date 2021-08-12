@@ -37,12 +37,28 @@ class Board
   end
 end
 
-
-
 def check_vertical
   p1_count = 0
   p2_count = 0
  
+  3.times do |row|
+    3.times do |col|
+      case $arr[row][col]
+      when @p1.player_marker
+        p1_count += 1
+      when @p2.player_marker
+        p2_count += 1
+      end
+    end
+  end
+
+  
+end
+
+def check_horizontal
+  p1_count = 0
+  p2_count = 0
+
   3.times do |col|
     3.times do |row|
       case $arr[row][col]
@@ -66,5 +82,5 @@ Board.new
 @p1.make_move(1, 1)
 @p1.make_move(1, 2)
 @p1.make_move(1, 0)
-check_vertical()
+check_horizontal()
 #@p2.make_move(1,2)
