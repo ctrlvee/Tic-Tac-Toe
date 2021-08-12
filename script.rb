@@ -37,57 +37,34 @@ class Board
   end
 end
 
-class Game
-  
-  def initialize
-    Board.new
-  end
 
-  public
 
-  def run_checks
-    check_horizontal()
-    check_diagonal()
-    check_vertical()
-  end
-
-  def check_vertical
-    p1_count = 0
-    p2_count =0
-
-    3.times do |col|
-      3.times do |row|
-        case $arr[row][col]
-        when  p2.player_marker
-          p2_count += 1
-        when p1.player_marker
-          p1_count += 1
-        end
+def check_vertical
+  p1_count = 0
+  p2_count = 0
+  3.times do |col|
+    puts col
+    3.times do |row|
+      puts row
+      case $arr[row][col]
+      when @p2.player_marker
+        p2_count += 1
+      when @p1.player_marker
+        p1_count += 1
       end
     end
   end
-
-  def check_horizontal
-
-  end
-
-  def check_diagonal
-
-  end
-
-  def win_count
-
-  end
 end
 
+
 binding.pry
-the_game = Game.new
+Board.new
 
-p1 = Player.new
-p2 = Player.new
+@p1 = Player.new
+@p2 = Player.new
 
-p1.make_move(1, 1)
-p1.make_move(1, 2)
-p1.make_move(1, 3)
-the_game.check_vertical()
-p1.make_move(1,2)
+@p1.make_move(1, 1)
+@p1.make_move(1, 2)
+@p1.make_move(1, 0)
+check_vertical()
+#@p2.make_move(1,2)
