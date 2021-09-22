@@ -96,6 +96,8 @@ p2 = Player.new
 b.make_move(p1,1,2)
 b.make_move(p1,0,0)
 b.make_move(p2,0,0)
+b.make_move(p1,1,0)
+b.make_move(p1,2,0)
 p b.arr
 check_vertical(b,p1,p2)
 #check_horizontal(p1,p2)
