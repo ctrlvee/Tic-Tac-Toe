@@ -74,14 +74,20 @@ def check_horizontal(b,p1,p2)
   3.times do |row|
     3.times do |col|
       case b.arr[row][col]
-      when @p1.player_marker
+      when p1.player_marker
         p1_count += 1
-      when @p2.player_marker
+      when p2.player_marker
         p2_count += 1
       end
     end
-    p1_count = 0
-    p2_count = 0
+    if p1_count == 3
+      return p1
+    elsif p2_count == 3
+      return p2
+    else
+      p1_count = 0
+      p2_count = 0
+    end
   end
 end
 
@@ -95,9 +101,10 @@ p2 = Player.new
 
 b.make_move(p1,1,2)
 b.make_move(p1,0,0)
+b.make_move(p1,1,1)
 b.make_move(p2,0,0)
 b.make_move(p1,1,0)
 b.make_move(p1,2,0)
 p b.arr
 #check_vertical(b,p1,p2)
-check_horizontal(p1,p2)
+check_horizontal(b,p1,p2)
