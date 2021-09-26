@@ -63,8 +63,14 @@ def check_vertical(b,p1,p2)
         p2_count += 1
       end
     end
-    p1_count = 0
-    p2_count = 0
+    if p1_count == 3
+      return p1
+    elsif p2_count == 3
+      return p2
+    else
+      p1_count = 0
+      p2_count = 0
+    end
   end
 end
 
