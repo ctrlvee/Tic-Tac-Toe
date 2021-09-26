@@ -97,7 +97,6 @@ def check_horizontal(b,p1,p2)
   end
 end
 
-#def one_round
 
 binding.pry
 b = Board.new
