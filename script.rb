@@ -68,7 +68,7 @@ def check_vertical(b,p1,p2)
   end
 end
 
-def check_horizontal
+def check_horizontal(b,p1,p2)
   p1_count = 0
   p2_count = 0
   3.times do |row|
@@ -99,5 +99,5 @@ b.make_move(p2,0,0)
 b.make_move(p1,1,0)
 b.make_move(p1,2,0)
 p b.arr
-check_vertical(b,p1,p2)
-#check_horizontal(p1,p2)
+#check_vertical(b,p1,p2)
+check_horizontal(p1,p2)
