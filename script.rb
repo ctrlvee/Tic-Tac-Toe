@@ -114,7 +114,9 @@ def ask_moves(b, p1, p2)
 end
 
 def print_board(b)
-  puts 
+  puts "-----      \n"\
+      " |     | \n"\
+      "|       |"
 end
 
 
