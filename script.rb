@@ -114,17 +114,17 @@ def ask_moves(b, p1, p2)
 end
 
 def print_board(b)
-  puts " ------------\n"\
-       "|   |    |   |\n"\
-       "|------------|\n"\
-       "|   |    |   |\n"\
-       "|------------|\n"\
-       "|   |    |   |\n"\
-       " ------------"\
+  puts " ------\n"\
+       "|#{b.arr[0][0]}|#{b.arr[0][1]}|#{b.arr[0][2]} |\n"\
+       "|------|\n"\
+       "|#{b.arr[1][0]}|#{b.arr[1][1]}|#{b.arr[1][2]} |\n"\
+       "|------|\n"\
+       "|#{b.arr[2][0]}|#{b.arr[2][1]}|#{b.arr[2][2]} |\n"\
+       " ------"\
 end
 
 
-binding.pry
+
 b = Board.new
 
 p1 = Player.new
@@ -139,4 +139,5 @@ b.make_move(p1,2,0)
 p b.arr
 #check_vertical(b,p1,p2)
 check_horizontal(b,p1,p2)
+binding.pry
 isBoardFilled?(b)
