@@ -38,7 +38,7 @@ class Board
   end
 end
 
-def whoWon?(p1, p2)
+def who_won?(p1, p2)
   if p1 == 3
     return player_one
   elsif p2 == 3
@@ -74,7 +74,7 @@ def check_vertical(b,p1,p2)
   end
 end
 
-def check_horizontal(b,p1,p2)
+def check_horizontal(b, p1, p2)
   p1_count = 0
   p2_count = 0
   3.times do |row|
@@ -97,6 +97,26 @@ def check_horizontal(b,p1,p2)
   end
 end
 
+def is_board_filled?(b)
+  if b.include?(nil)
+    return false
+  else
+    return true
+  end
+end 
+
+#def is_game_done?(b, p1,p2)
+ # if check_horizontal(
+#end
+
+def ask_moves(b, p1, p2)
+  moves = 9
+end
+
+def print_board(b)
+  puts 
+end
+
 
 binding.pry
 b = Board.new
@@ -113,3 +133,4 @@ b.make_move(p1,2,0)
 p b.arr
 #check_vertical(b,p1,p2)
 check_horizontal(b,p1,p2)
+isBoardFilled?(b)
