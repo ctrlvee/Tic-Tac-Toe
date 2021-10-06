@@ -31,8 +31,8 @@ class Board
   
   def check_if_marker_exists(row, col)
   
-    if @arr[row][col] != "-"
-      puts 'Invalid. The other player has used that square'
+    if @arr[row][col] != '-'
+      puts 'Invalid. The square has been used'
       true
     end
   end
@@ -71,6 +71,7 @@ def check_vertical(b,p1,p2)
         p1_count = 0
         p2_count = 0
       end
+    return false
   end
 end
 
@@ -94,6 +95,7 @@ def check_horizontal(b, p1, p2)
         p1_count = 0
         p2_count = 0
       end
+    return false
   end
 end
 
@@ -105,14 +107,40 @@ def is_board_filled?(b)
       return true
     end
   end
+  raise NotFoundError
 end 
 
-#def is_game_done?(b, p1,p2)
- # if check_horizontal(
-#end
+def is_game_done?(b, p1, p2)
+  if check_horizontal(b, p1, p2)
+    return true
+  elsif check_vertical(b, p1, p2)
+    return true
+  elsif is_board_filled?(b)
+    return true
+  else 
+    return false
+  #elsif check_diagonal(b, p1, p2)
+    #return true
+  end
+end
 
 def ask_moves(b, p1, p2)
   moves = 9
+  until is_game_done?(b, p1, p2) == true
+    if moves % 2 == 0
+      puts ('Enter p2 coordinates')
+      r = gets.to_i
+      c = gets.to_i
+      b.make_move(p2, r, c)
+    else
+      puts ('Enter p1 coordinates')
+      r = gets.to_i
+      c = gets.to_i
+      b.make_move(p1, r, c)
+    end
+    print_board(b)
+    moves -= 1
+  end
 end
 
 def print_board(b)
@@ -125,22 +153,19 @@ def print_board(b)
        " ------"\
 end
 
-
-
 b = Board.new
-
 p1 = Player.new
 p2 = Player.new
-
-b.make_move(p1,1,2)
-b.make_move(p1,0,0)
-b.make_move(p1,1,1)
-b.make_move(p2,0,0)
-b.make_move(p1,1,0)
-b.make_move(p1,2,0)
-p b.arr
-#check_vertical(b,p1,p2)
-check_horizontal(b,p1,p2)
 binding.pry
-is_board_filled?(b)
-print_board(b)
+ask_moves(b, p1, p2)
+#b.make_move(p1, 1, 2)
+#b.make_move(p1, 0, 0)
+#b.make_move(p1, 1, 1)
+#b.make_move(p2, 0, 0)
+#b.make_move(p1, 1, 0)
+#b.make_move(p1, 2, 0)
+#print_board(b)
+#check_vertical(b,p1,p2)
+#check_horizontal(b,p1,p2)
+#binding.pry
+#is_board_filled?(b)
