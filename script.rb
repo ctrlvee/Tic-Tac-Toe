@@ -17,7 +17,7 @@ class Board
   attr_accessor :arr
 
   def initialize
-    @arr = Array.new(3) { Array.new(3, nil) }
+    @arr = Array.new(3) { Array.new(3, "-") }
   end
 
   def make_move(p, row, col)
@@ -31,7 +31,7 @@ class Board
   
   def check_if_marker_exists(row, col)
   
-    if @arr[row][col] != nil
+    if @arr[row][col] != "-"
       puts 'Invalid. The other player has used that square'
       true
     end
@@ -98,10 +98,12 @@ def check_horizontal(b, p1, p2)
 end
 
 def is_board_filled?(b)
-  if b.include?(nil)
-    return false
-  else
-    return true
+  b.arr.each do |row|
+    if row.include?("-")
+      return false
+    else
+      return true
+    end
   end
 end 
 
@@ -140,4 +142,5 @@ p b.arr
 #check_vertical(b,p1,p2)
 check_horizontal(b,p1,p2)
 binding.pry
-isBoardFilled?(b)
+is_board_filled?(b)
+print_board(b)
